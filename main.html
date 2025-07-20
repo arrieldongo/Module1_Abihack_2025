@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afritech Talent Hub - Votre Agent IA pour le Recrutement Tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- ORIGINAL MAIN PAGE STYLES (PRESERVED EXACTLY) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex; /* Allows content to be centered horizontally/vertically */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #333; /* Default text color for the body, overridden by container */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        /* NOUVEAUX STYLES SPÉCIFIQUES POUR LE TEXTE DU HEADER INTERNE */
+        .logo-afritech-hub {
+            font-family: 'Poppins', sans-serif; /* Assurez-vous que Poppins est bien importé dans votre <head> */
+            font-size: 3rem; /* Taille par défaut */
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            display: flex; /* Permet d'aligner les spans */
+            flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
+            justify-content: center;
+            align-items: center;
+            gap: 8px; /* Espace entre les mots */
+            margin-bottom: 15px; /* Espace sous le logo */
+            text-shadow: 0 3px 6px rgba(0,0,0,0.2); /* Ombre douce pour le texte */
+        }
+
+        /* Couleurs du logo Google appliquées lettre par lettre */
+        .logo-afritech-hub .char-A { color: #4285F4; } /* Bleu */
+        .logo-afritech-hub .char-F { color: #4285F4; } /* Rouge */
+        .logo-afritech-hub .char-R { color: #4285F4; } /* Jaune */
+        .logo-afritech-hub .char-I { color: #4285F4; } /* Bleu */
+        .logo-afritech-hub .char-T { color: #34A853; } /* Vert */
+        .logo-afritech-hub .char-E { color: #EA4335; } /* Rouge */
+        .logo-afritech-hub .char-C { color: #FBBC05; } /* Jaune */
+        .logo-afritech-hub .char-H { color: #4285F4; } /* Blue */
+
+        .logo-afritech-hub .char-T2 { color: #34A853; } /* Green */
+        .logo-afritech-hub .char-A2 { color: #EA4335; } /* Red */
+        .logo-afritech-hub .char-L { color: #FBBC05; } /* Yellow */
+        .logo-afritech-hub .char-E2 { color: #4285F4; } /* Blue */
+        .logo-afritech-hub .char-N { color: #34A853; } /* Green */
+        .logo-afritech-hub .char-T3 { color: #EA4335; } /* Red */
+
+        .logo-afritech-hub .char-H2 { color: #FBBC05; } /* Yellow */
+        .logo-afritech-hub .char-U { color: #4285F4; } /* Blue */
+        .logo-afritech-hub .char-B { color: #34A853; } /* Green */
+        
+        /* Styles pour les espaces entre les mots si nécessaire (déjà géré par gap sur flex) */
+        .logo-afritech-hub .char-space { width: 8px; } /* Small space between parts */
+
+
+        /* Styles pour le sous-titre */
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem; /* Taille par défaut */
+            color: #555; /* Couleur de texte cohérente avec le design initial */
+            font-weight: 600;
+            margin-bottom: 15px; /* Espace ajusté */
+            line-height: 1.4;
+        }
+
+        /* Styles pour la description */
+        .description {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem; /* Taille de texte ajustée */
+            color: #555; /* Couleur de texte cohérente avec le design initial */
+            line-height: 1.6;
+            margin-bottom: 25px; /* Espace ajusté */
+            max-width: 650px; /* Largeur légèrement augmentée pour le texte */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Original CTA button style */
+        .scroll-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: #10B981; /* Green accent color */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            margin-top: 20px; /* Space below description */
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .scroll-cta-button:hover {
+            background: #0B956C; /* Darker green on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .scroll-cta-button svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+
+        .agent-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .agent-iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            /* Styles spécifiques pour le header interne sur mobile */
+            .logo-afritech-hub {
+                font-size: 2rem; /* Plus petit sur mobile */
+                gap: 5px;
+            }
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            .description {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+
+
+            .agent-iframe {
+                height: 600px;
+            }
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            font-size: 1.1rem;
+            color: #667eea;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- TALENT PROFILES SECTION STYLES (Adopted from previous version) --- */
+        #talents-profiles-section {
+            background: rgba(255, 255, 255, 0.98); /* White background for this section */
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            margin-top: 60px; /* Space from the section above */
+            color: #2A363B; /* Default text color for this section */
+            width: 100%; /* Ensure it spans width within body padding */
+            max-width: 1200px; /* Same max-width as container */
+            margin-left: auto; /* Center it */
+            margin-right: auto; /* Center it */
+        }
+
+        .talents-section-header { /* Renamed for clarity, avoiding conflict */
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .talents-section-header h2 { /* Renamed for clarity */
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2A363B;
+            margin-bottom: 15px;
+        }
+
+        .talents-section-header p { /* Renamed for clarity */
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .candidates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .candidate-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #F0F0F0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .candidate-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .candidate-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3B82F6 0%, #764BA2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-right: 18px;
+            border: 3px solid #E0E0E0;
+        }
+
+        .candidate-info {
+            flex: 1;
+        }
+
+        .candidate-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2A363B;
+            margin-bottom: 5px;
+        }
+
+        .candidate-title {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .skills-section {
+            margin-bottom: 15px;
+        }
+
+        .skills-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #475C68;
+        }
+
+        .skills-icon {
+            color: #764BA2;
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #E0E7FF;
+            color: #3B82F6;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #A7C0F0;
+        }
+
+        .experience-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px dashed #E0E0E0;
+            border-top: 1px dashed #E0E0E0;
+        }
+
+        .experience-info {
+            display: flex;
+            align-items: center;
+            color: #475C68;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .experience-icon {
+            margin-right: 8px;
+            color: #475C68;
+            font-size: 1.1rem;
+        }
+
+        .ai-analysis {
+            background: #F0FDF4;
+            border: 1px solid #BEE3DB;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .ai-analysis-title {
+            font-weight: 700;
+            color: #2A363B;
+            margin-bottom: 8px;
+        }
+
+        .ai-analysis-text {
+            color: #475C68;
+            line-height: 1.5;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1024px) {
+            .logo-afritech-hub {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            .description {
+                font-size: 0.9rem;
+            }
+            .scroll-cta-button {
+                font-size: 1.1rem;
+            }
+            .candidates-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            .features {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            .agent-iframe {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                padding: 20px;
+                width: calc(100% - 30px);
+            }
+            .logo-afritech-hub {
+                font-size: 1.8rem;
+                gap: 6px;
+            }
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            .description {
+                font-size: 0.85rem;
+                margin-bottom: 20px;
+            }
+            .scroll-cta-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            .agent-iframe {
+                height: 400px;
+            }
+            .features {
+                gap: 15px;
+            }
+            .feature h3 {
+                font-size: 1.1rem;
+            }
+            .feature p {
+                font-size: 0.85rem;
+            }
+            #talents-profiles-section {
+                padding: 20px;
+                margin-top: 40px;
+            }
+            .talents-section-header h2 {
+                font-size: 2rem;
+            }
+            .talents-section-header p {
+                font-size: 1rem;
+            }
+            .candidate-card {
+                padding: 15px;
+            }
+            .profile-pic {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                margin-right: 10px;
+            }
+            .candidate-name {
+                font-size: 1.1rem;
+            }
+            .candidate-title {
+                font-size: 0.8rem;
+            }
+            .skills-tags .skill-tag {
+                font-size: 0.75rem;
+                padding: 4px 10px;
+            }
+            .experience-info, .ai-analysis {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-afritech-hub {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+            .subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 8px;
+            }
+            .description {
+                font-size: 0.75rem;
+                margin-bottom: 15px;
+            }
+            .scroll-cta-button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            .candidates-grid, .features {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                border-radius: 0;
+            }
+            #talents-profiles-section {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-afritech-hub">
+                <span class="char-A">A</span><span class="char-F">F</span><span class="char-R">R</span><span class="char-I">I</span><span class="char-T">T</span><span class="char-E">E</span><span class="char-C">C</span><span class="char-H">H</span>
+                <span class="char-space"></span>
+                <span class="char-T2">T</span><span class="char-A2">A</span><span class="char-L">L</span><span class="char-E2">E</span><span class="char-N">N</span><span class="char-T3">T</span>
+                <span class="char-space"></span>
+                <span class="char-H2">H</span><span class="char-U">U</span><span class="char-B">B</span>
+            </div>
+
+            <div class="subtitle">
+                L'IA au service de votre recrutement Tech en Afrique.
+            </div>
+
+            <div class="description">
+                Rencontrez Eva, votre agente IA de recrutement personnelle. Ne perdez plus de temps à trier les CV : commencez dès aujourd'hui à interviewer des candidats qualifiés et motivés.
+            </div>
+            
+            <a href="#talents-profiles-section" class="scroll-cta-button">
+                Explorer nos profils tech
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-4 0c1.66 0 2.99-1.34 2.99-3S13.66 5 12 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-4 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zM2 17.5c0 2.47 2.19 4.5 4.5 4.5h15c2.21 0 4-1.79 4-4v-1.17c-.88-.23-1.75-.8-2.58-1.54L19 14.15l-1.39-1.17c-1.87-1.57-4.14-2.38-6.61-2.38-2.61 0-5.32.96-7.82 2.65L2 15.5V17.5z"/></svg>
+            </a>
+        </div>
+
+        <div class="agent-container">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                Chargement de l'agent Eva...
+            </div>
+
+            <iframe
+                id="JotFormIFrame-01982034cd2d7245acb8dcecedf3eaa3145e"
+                title="Eva: Recruitment agent that assist companies to find the best Tech talents"
+                onload="hideLoading()"
+                allowtransparency="true"
+                allow="geolocation; microphone; camera; fullscreen"
+                src="https://agent.jotform.com/01982034cd2d7245acb8dcecedf3eaa3145e?embedMode=iframe&background=1&shadow=1"
+                class="agent-iframe"
+                scrolling="no">
+            </iframe>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3>🎯 Analyse Intelligente</h3>
+                <p>Eva comprend vos besoins spécifiques et analyse chaque candidat pour une correspondance parfaite.</p>
+            </div>
+            <div class="feature">
+                <h3>📊 Pepiniere de Talents</h3>
+                <p>Accès à des milliers de profils tech africains vérifiés, avec compétences détaillées et projets récents.</p>
+            </div>
+            <div class="feature">
+                <h3>⚡ Réponse Instantanée</h3>
+                <p>Obtenez des recommandations en temps réel avec des profils détaillés et des justifications claires.</p>
+            </div>
+            <div class="feature">
+                <h3>🌍 Expertise Tech</h3>
+                <p>Spécialisée dans tous les domaines tech : développement, DevOps, Data Science, IA/ML, et plus encore.</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="talents-profiles-section">
+        <div class="talents-section-header">
+            <h2>Découvrez notre Vivier de Talents Tech Africains</h2>
+            <p>
+                Voici un aperçu de quelques profils d'exception disponibles sur Afritech Talent Hub.
+                Chaque carte illustre la profondeur et la diversité des compétences techniques et comportementales de nos talents.
+            </p>
+        </div>
+
+        <div class="candidates-grid">
+            <div class="candidate-card">
+                <div>
+                    <div class="candidate-header">
+                        <div class="profile-pic">OB</div>
+                        <div class="candidate-info">
+                            <div class="candidate-name">Oumar Ba</div>
+                            <div class="candidate-title">Ingénieur IA Senior</div>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">⚙️</span>
+                            <span>Compétences Techniques</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Computer Vision</span>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">🤝</span>
+                            <span>Soft Skills</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Gestion de projet</span>
+                        </div>
+                    </div>
+                    <div class="experience-section">
+                        <div class="experience-info">
+                            <span class="experience-icon">💼</span>
+                            <span>9 ans d'expérience</span>
+                        </div>
+                    </div>
+                    <div class="ai-analysis">
+                        <div class="ai-analysis-title">Aperçu du Profil :</div>
+                        <div class="ai-analysis-text">
+                            Expertise solide en IA et Deep Learning, avec une expérience pertinente en santé et finance. Leadership avéré sur des projets complexes, maîtrise des outils clés comme TensorFlow et PyTorch.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="candidate-card">
+                <div>
+                    <div class="candidate-header">
+                        <div class="profile-pic">AD</div>
+                        <div class="candidate-info">
+                            <div class="candidate-name">Aïssatou Diallo</div>
+                            <div class="candidate-title">Cheffe de Projet IT Senior</div>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">⚙️</span>
+                            <span>Compétences Techniques</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Gestion de projet (Agile)</span>
+                            <span class="skill-tag">Transformation digitale</span>
+                            <span class="skill-tag">ERP</span>
+                            <span class="skill-tag">Jira</span>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">🤝</span>
+                            <span>Soft Skills</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Communication</span>
+                        </div>
+                    </div>
+                    <div class="experience-section">
+                        <div class="experience-info">
+                            <span class="experience-icon">💼</span>
+                            <span>10 ans d'expérience</span>
+                        </div>
+                    </div>
+                    <div class="ai-analysis">
+                        <div class="ai-analysis-title">Aperçu du Profil :</div>
+                        <div class="ai-analysis-text">
+                            Experte en gestion de projets digitaux avec succès dans le secteur bancaire en Afrique de l’Ouest. Forte en coordination d'équipes et gestion de budgets complexes. Compétences avérées en transformation digitale et ERP.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="candidate-card">
+                <div>
+                    <div class="candidate-header">
+                        <div class="profile-pic">AN</div>
+                        <div class="candidate-info">
+                            <div class="candidate-name">Abdoulaye Ndiaye</div>
+                            <div class="candidate-title">Ingénieur Cloud Senior</div>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">⚙️</span>
+                            <span>Compétences Techniques</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">Terraform</span>
+                            <span class="skill-tag">Kubernetes</span>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">🤝</span>
+                            <span>Soft Skills</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Gestion de projet</span>
+                        </div>
+                    </div>
+                    <div class="experience-section">
+                        <div class="experience-info">
+                            <span class="experience-icon">💼</span>
+                            <span>10 ans d'expérience</span>
+                        </div>
+                    </div>
+                    <div class="ai-analysis">
+                        <div class="ai-analysis-title">Aperçu du Profil :</div>
+                        <div class="ai-analysis-text">
+                            Expert cloud senior avec une triple expertise AWS, Azure, GCP. A dirigé des projets de migration cloud et d'optimisation des coûts. Maîtrise des outils d'automatisation comme Terraform et Ansible.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="candidate-card">
+                <div>
+                    <div class="candidate-header">
+                        <div class="profile-pic">FD</div>
+                        <div class="candidate-info">
+                            <div class="candidate-name">Fatoumata Diop</div>
+                            <div class="candidate-title">Ingénieure Cybersécurité Senior</div>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">⚙️</span>
+                            <span>Compétences Techniques</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Sécurité réseau</span>
+                            <span class="skill-tag">Gestion des incidents</span>
+                            <span class="skill-tag">Audits de sécurité</span>
+                            <span class="skill-tag">SIEM</span>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">🤝</span>
+                            <span>Soft Skills</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Pédagogie</span>
+                        </div>
+                    </div>
+                    <div class="experience-section">
+                        <div class="experience-info">
+                            <span class="experience-icon">💼</span>
+                            <span>9 ans d'expérience</span>
+                        </div>
+                    </div>
+                    <div class="ai-analysis">
+                        <div class="ai-analysis-title">Aperçu du Profil :</div>
+                        <div class="ai-analysis-text">
+                            Experte en cybersécurité avec une forte expérience en protection d'infrastructures critiques. A mené des audits et formé des équipes à la gestion des incidents. Compétences solides en SIEM et réponse aux cyberattaques.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="candidate-card">
+                <div>
+                    <div class="candidate-header">
+                        <div class="profile-pic">SK</div>
+                        <div class="candidate-info">
+                            <div class="candidate-name">Serge Kouadio</div>
+                            <div class="candidate-title">Développeur Full Stack Senior</div>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">⚙️</span>
+                            <span>Compétences Techniques</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">GraphQL</span>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">🤝</span>
+                            <span>Soft Skills</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Pédagogie</span>
+                        </div>
+                    </div>
+                    <div class="experience-section">
+                        <div class="experience-info">
+                            <span class="experience-icon">💼</span>
+                            <span>8 ans d'expérience</span>
+                        </div>
+                    </div>
+                    <div class="ai-analysis">
+                        <div class="ai-analysis-title">Aperçu du Profil :</div>
+                        <div class="ai-analysis-text">
+                            Ingénieur Full Stack expérimenté en solutions web/mobiles innovantes pour l'éducation. A dirigé des équipes agiles et déployé des plateformes utilisées par des milliers d'étudiants. Fort en conception d'architectures robustes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="candidate-card">
+                <div>
+                    <div class="candidate-header">
+                        <div class="profile-pic">MK</div>
+                        <div class="candidate-info">
+                            <div class="candidate-name">Mariam Keita</div>
+                            <div class="candidate-title">UI/UX Designer Senior</div>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">⚙️</span>
+                            <span>Compétences Techniques</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Adobe XD</span>
+                            <span class="skill-tag">Prototypage</span>
+                            <span class="skill-tag">Tests utilisateurs</span>
+                            <span class="skill-tag">Accessibilité</span>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">🤝</span>
+                            <span>Soft Skills</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Empathie</span>
+                            <span class="skill-tag">Créativité</span>
+                        </div>
+                    </div>
+                    <div class="experience-section">
+                        <div class="experience-info">
+                            <span class="experience-icon">💼</span>
+                            <span>8 ans d'expérience</span>
+                        </div>
+                    </div>
+                    <div class="ai-analysis">
+                        <div class="ai-analysis-title">Aperçu du Profil :</div>
+                        <div class="ai-analysis-text">
+                            Spécialiste UX avec une forte expérience en conception d'interfaces intuitives et recherche utilisateur. Expertise en design systems et accessibilité. Très pertinente pour des projets fintech ou edtech.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="candidate-card">
+                <div>
+                    <div class="candidate-header">
+                        <div class="profile-pic">AS</div>
+                        <div class="candidate-info">
+                            <div class="candidate-name">Amadou Sow</div>
+                            <div class="candidate-title">Ingénieur DevOps Senior</div>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">⚙️</span>
+                            <span>Compétences Techniques</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Jenkins</span>
+                            <span class="skill-tag">Terraform</span>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">🤝</span>
+                            <span>Soft Skills</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Gestion de projet</span>
+                        </div>
+                    </div>
+                    <div class="experience-section">
+                        <div class="experience-info">
+                            <span class="experience-icon">💼</span>
+                            <span>9 ans d'expérience</span>
+                        </div>
+                    </div>
+                    <div class="ai-analysis">
+                        <div class="ai-analysis-title">Aperçu du Profil :</div>
+                        <div class="ai-analysis-text">
+                            Expert DevOps senior avec solide expérience en automatisation des déploiements et gestion d'infrastructures cloud. A dirigé des projets de migration cloud et d'optimisation de pipelines. Maîtrise d'AWS, Docker, Kubernetes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="candidate-card">
+                <div>
+                    <div class="candidate-header">
+                        <div class="profile-pic">MD</div>
+                        <div class="candidate-info">
+                            <div class="candidate-name">Mamadou Diop</div>
+                            <div class="candidate-title">Ingénieur Machine Learning Senior</div>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">⚙️</span>
+                            <span>Compétences Techniques</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">BERT</span>
+                            <span class="skill-tag">Spark MLlib</span>
+                            <span class="skill-tag">Recommandation</span>
+                        </div>
+                    </div>
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span class="skills-icon">🤝</span>
+                            <span>Soft Skills</span>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Pédagogie</span>
+                        </div>
+                    </div>
+                    <div class="experience-section">
+                        <div class="experience-info">
+                            <span class="experience-icon">💼</span>
+                            <span>10 ans d'expérience</span>
+                        </div>
+                    </div>
+                    <div class="ai-analysis">
+                        <div class="ai-analysis-title">Aperçu du Profil :</div>
+                        <div class="ai-analysis-text">
+                            Ingénieur ML senior avec forte expérience en NLP et systèmes de recommandation pour médias/e-commerce. Maîtrise de Python, BERT et Spark MLlib. A dirigé des projets Agile.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+    <script>
+        // Adjust JotForm iframe handler
+        window.jotformEmbedHandler("iframe[id='JotFormIFrame-01982034cd2d7245acb8dcecedf3eaa3145e']", "https://www.jotform.com");
+
+        // Function to hide loading spinner
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        // Fallback to hide loading after 5 seconds in case of embed issues
+        setTimeout(function() {
+            document.getElementById('loading').style.display = 'none';
+        }, 5000);
+
+        // Smooth scroll to talents showcase section
+        document.querySelector('.scroll-cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
