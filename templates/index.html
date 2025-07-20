@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaifai AI Docs - Analyseur de CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; margin: 20px; background-color: #f4f7f6; color: #333; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1, h2 { color: #4F46E5; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: 500; margin-bottom: 5px; }
+        input[type="text"], textarea { width: 100%; padding: 10px; border: 1px solid #CBD5E0; border-radius: 4px; box-sizing: border-box; font-size: 14px; }
+        textarea { min-height: 100px; font-family: monospace; }
+        button { padding: 12px 20px; background-color: #4F46E5; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s; font-size: 16px; }
+        button:hover { background-color: #4338CA; }
+        #spinner { display: none; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Analyseur de CV avec Shaifai AI Docs</h1>
+        <h1>AFRITECH TALENT HUB</h1>
+        <p>Chargez un CV (format image ou PDF). L'IA va lire le document et extraire les informations clés pour votre validation.</p>
+        
+        <form id="upload-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="document">1. Charger le document CV</label>
+                <input type="file" id="document" name="document" required>
+            </div>
+            <button type="submit">Analyser le CV</button>
+        </form>
+
+        <div id="spinner">Analyse en cours...</div>
+
+        <form id="correction-form" style="display: none;">
+            <hr style="margin: 30px 0;">
+            <h2>2. Données Extraites pour Validation</h2>
+            
+            <div class="form-group"> <label for="Name">Nom</label> <input type="text" id="Name" name="Name"> </div>
+            <div class="form-group"> <label for="Title">Titre</label> <input type="text" id="Title" name="Title"> </div>
+            <div class="form-group"> <label for="Location">Localisation</label> <input type="text" id="Location" name="Location"> </div>
+            <div class="form-group"> <label for="Bio">Bio</label> <textarea id="Bio" name="Bio"></textarea> </div>
+            <div class="form-group"> <label for="Skills">Compétences Techniques</label> <textarea id="Skills" name="Skills"></textarea> </div>
+            <div class="form-group"> <label for="Soft_Skills">Compétences Humaines</label> <textarea id="Soft_Skills" name="Soft_Skills"></textarea> </div>
+            <div class="form-group"> <label for="Experience">Expérience (JSON)</label> <textarea id="Experience" name="Experience"></textarea> </div>
+            <div class="form-group"> <label for="Projects">Projets (JSON)</label> <textarea id="Projects" name="Projects"></textarea> </div>
+            <div class="form-group"> <label for="Certifications">Certifications (JSON)</label> <textarea id="Certifications" name="Certifications"></textarea> </div>
+
+            <button type="submit">Valider et Sauvegarder dans Excel</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const spinner = document.getElementById('spinner');
+            const correctionForm = document.getElementById('correction-form');
+
+            spinner.style.display = 'block';
+            correctionForm.style.display = 'none';
+
+            const response = await fetch('/api/process-document', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+            spinner.style.display = 'none';
+
+            if (data && !data.error) {
+                document.getElementById('Name').value = data.Name || '';
+                document.getElementById('Title').value = data.Title || '';
+                document.getElementById('Location').value = data.Location || '';
+                document.getElementById('Bio').value = data.Bio || '';
+                document.getElementById('Skills').value = (data.Skills || []).join(', ');
+                document.getElementById('Soft_Skills').value = (data.Soft_Skills || []).join(', ');
+                document.getElementById('Experience').value = JSON.stringify(data.Experience || [], null, 2);
+                document.getElementById('Projects').value = JSON.stringify(data.Projects || [], null, 2);
+                document.getElementById('Certifications').value = JSON.stringify(data.Certifications || [], null, 2);
+
+                correctionForm.style.display = 'block';
+            } else {
+                alert('Une erreur est survenue: ' + (data ? data.error : 'Erreur inconnue'));
+            }
+        });
+
+        // --- CODE DE VALIDATION CORRIGÉ ---
+        document.getElementById('correction-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            try {
+                // On rassemble toutes les données du formulaire dans un objet JSON
+                const validatedData = {
+                    Name: document.getElementById('Name').value,
+                    Title: document.getElementById('Title').value,
+                    Location: document.getElementById('Location').value,
+                    Bio: document.getElementById('Bio').value,
+                    // On re-transforme les chaînes de caractères en listes
+                    Skills: document.getElementById('Skills').value.split(',').map(s => s.trim()).filter(s => s),
+                    Soft_Skills: document.getElementById('Soft_Skills').value.split(',').map(s => s.trim()).filter(s => s),
+                    // On re-parse le JSON des champs complexes
+                    Experience: JSON.parse(document.getElementById('Experience').value),
+                    Projects: JSON.parse(document.getElementById('Projects').value),
+                    Certifications: JSON.parse(document.getElementById('Certifications').value),
+                };
+
+                // On envoie les données au backend pour la sauvegarde
+                const response = await fetch('/api/submit-corrections', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(validatedData)
+                });
+
+                const result = await response.json();
+                if (result.status === 'success') {
+                    alert('Données sauvegardées avec succès dans le fichier Excel !');
+                } else {
+                    alert('Erreur lors de la sauvegarde : ' + result.message);
+                }
+            } catch (error) {
+                alert('Erreur de formatage dans un des champs JSON (Experience, Projets, ou Certifications). Veuillez vérifier la syntaxe.');
+                console.error("Erreur de parsing JSON:", error);
+            }
+        });
+    </script>
+</body>
+</html>

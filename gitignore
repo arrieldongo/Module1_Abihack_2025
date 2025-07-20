@@ -1,0 +1,16 @@
+# Fichiers de credentials
+gcp-credentials.json
+
+# Environnement virtuel
+venv/
+venvfinal/
+
+# Fichiers système macOS
+.DS_Store
+
+# Fichiers Python compilés et caches
+__pycache__/
+*.pyc
+
+# Fichiers Excel générés
+*.xlsx
