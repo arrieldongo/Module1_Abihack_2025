@@ -5,7 +5,7 @@ from google.cloud import vision
 
 # --- CONFIGURATION ---
 # Collez ici votre clé API obtenue sur https://aistudio.google.com/app/apikey
-AI_STUDIO_API_KEY = "AIzaSyC3WJoRHUJLavzs0vrU-ZJ_dscnoP-oskk"
+AI_STUDIO_API_KEY = "ici"
 genai.configure(api_key=AI_STUDIO_API_KEY)
 # -------------------
 
